@@ -1,0 +1,9 @@
+<body>
+    <h1> Python Fetch Example</h1>
+    <p id='embed'>{{
+        @app.route('/')
+        def home_page():
+            example_embed='This string is from python'
+            return render_template('index.html', embed=example_embed)}}</p>
+    <p id='mylog'/>
+<body>
