@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/speed')
 def speed():
-    return 267 + 3 * (random.random())
+    return str(267 + 3 * (random.random()))
 
 @app.route('/throttle_level')
 def throttle():
@@ -13,7 +13,7 @@ def throttle():
 
 @app.route('/steering_angle')
 def angle():
-    return 0
+    return str(0)
 
 if __name__ == "__main__":
     app.debug = True
