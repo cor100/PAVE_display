@@ -12,6 +12,17 @@ table{
 th, td{
     padding: 14px;
 }
+
+section{
+    padding:19px;
+}
+
+.rect{
+    width: 541px;
+    height: 18px;
+    background-color:#ffffff;
+    margin-bottom: 69px;
+}
 .container {
     display: table;
     width: 100%;
@@ -34,4 +45,9 @@ th, td{
 .center{
     margin-left: auto;
     margin-right: auto;
+}
+
+.sponsor{
+    height: 29px;
+    width: auto;
 }
