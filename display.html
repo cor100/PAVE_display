@@ -13,6 +13,14 @@
             var data = text.split("\n");
             var num = data[0].split(", ");
             document.getElementById("dataLabel").innerHTML = num[0];
+            
+            document.getElementById("rudder").innerHTML = "rudder angle: " + num[0];
+            var rudder = document.getElementsByClassName("rudderColor");
+            rudder[0].style.width=(num[0]+"%");
+
+            document.getElementById("throttle").innerHTML = "throttle: " + num[0];
+            var throttle = document.getElementsByClassName("throttleColor");
+            throttle[0].style.width=(num[0]+"%");
         })
     }
 </script>
@@ -40,14 +48,18 @@
                     </tr>
                 </table>
                 <section>
-                    <h1>
+                    <h1 id="throttle">
                         throttle
                     </h1>
-                    <div class = "rect"></div>
-                    <h1>
+                    <div class="progress">
+                        <div class="throttleColor"></div>
+                      </div>                        
+                      <h1 id="rudder">
                         rudder angle
                     </h1>
-                    <div class = "rect"></div>
+                    <div class="progress">
+                        <div class="rudderColor"></div>
+                      </div>                    
                     <h1>
                         control
                     </h1>
