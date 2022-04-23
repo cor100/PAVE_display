@@ -65,6 +65,7 @@ progress[value] {
     position: absolute;
     left: 0px;
     width: 55%;
+    height: 100%
 }
 
 .right-half {
@@ -72,6 +73,7 @@ progress[value] {
     position: absolute;
     right: 0px;
     width: 45%;
+    height: 100%;
 }
 
 .center{
@@ -82,4 +84,11 @@ progress[value] {
 .sponsor{
     height: 29px;
     width: auto;
+}
+
+.bottom{
+    bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    position: fixed;
 }
