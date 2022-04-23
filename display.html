@@ -21,6 +21,12 @@
             document.getElementById("throttle").innerHTML = "throttle: " + num[0];
             var throttle = document.getElementsByClassName("throttleColor");
             throttle[0].style.width=(num[0]+"%");
+
+            document.getElementById("bouy").style.top=(num[0]+"px");
+            document.getElementById("bouy").style.left=(200 +"px");
+            document.getElementById("boat").style.top=(num[0]+"px");
+            document.getElementById("boat").style.left=(num[0]+"px");
+
         })
     }
 </script>
@@ -38,6 +44,12 @@
                 </table>
                 <h1>TEST DISPLAY</h1>
                 <h2 id="dataLabel">?</h2>
+                <div class="label" id="boat"></div>
+                <div class="label" id="bouy"></div>
+
+
+
+
             </div>
             <div class = "right-half">
                 <table class = "center">
@@ -70,12 +82,12 @@
                             <th>Autonomous</th>
                         </tr>
                     </table>
-                    <table class = "bottom center">
+                    <table>
                         <tr>
                             <th>GPS</th>
                             <th>RC</th>
                         </tr>
-                    </table>
+                    </table>>
                 </section>
             </div>
         </section>
