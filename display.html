@@ -22,11 +22,24 @@
             var throttle = document.getElementsByClassName("throttleColor");
             throttle[0].style.width=(num[0]+"%");
 
-            document.getElementById("bouy").style.top=(num[0]+"px");
-            document.getElementById("bouy").style.left=(200 +"px");
-            document.getElementById("boat").style.top=(num[0]+"px");
-            document.getElementById("boat").style.left=(num[0]+"px");
+            const actualLeft = -77.190631;
+            const actualTop = 38.690681;
+            const actualWidth = 0.064825;
+            const actualHeight = 0.024768;
 
+            var buoy1Top = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
+            var buoy1Left = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
+            var buoy2Top = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
+            var buoy2Left = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
+            var boatTop = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
+            var boatLeft = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
+
+            document.getElementById("boat").style.top=(boatTop+"px");
+            document.getElementById("boat").style.left=(boatLeft+"px");
+            document.getElementById("buoy1").style.top=(buoy1Top+"px");
+            document.getElementById("buoy1").style.left=(buoy1Left+"px");
+            document.getElementById("buoy2").style.top=(buoy2Top+"px");
+            document.getElementById("buoy2").style.left=(buoy2Left+"px");
         })
     }
 </script>
@@ -44,12 +57,10 @@
                 </table>
                 <h1>TEST DISPLAY</h1>
                 <h2 id="dataLabel">?</h2>
+                <img src="Screen Shot 2022-04-26 at 1.38.26 PM.png" id="map">
                 <div class="label" id="boat"></div>
-                <div class="label" id="bouy"></div>
-
-
-
-
+                <div class="label buoy" id="buoy1"></div>
+                <div class="label buoy" id="buoy2"></div>
             </div>
             <div class = "right-half">
                 <table class = "center">

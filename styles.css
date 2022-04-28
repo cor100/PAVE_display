@@ -24,12 +24,6 @@ section{
     margin-bottom: 69px;
 }
 
-progress[value] {
-    width: 541px;
-    height: 18px;
-
-}
-
 .progress{
     position: relative;
     height: 10px;
@@ -65,7 +59,6 @@ progress[value] {
     position: absolute;
     left: 0px;
     width: 55%;
-    height: 100%
 }
 
 .right-half {
@@ -73,7 +66,6 @@ progress[value] {
     position: absolute;
     right: 0px;
     width: 45%;
-    height: 100%;
 }
 
 .center{
@@ -86,9 +78,30 @@ progress[value] {
     width: auto;
 }
 
-.bottom{
-    bottom: 0px;
-    margin-right: auto;
-    margin-left: auto;
-    position: fixed;
+.label {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+#boat {
+    position: absolute;
+    background-color: blue;
+    top: 150px;
+    left: 200px;
+}
+
+.buoy {
+    position: absolute;
+    background-color: red;
+    top: 300px;
+    left: 200px;
+}
+
+#map {
+    position: absolute;
+    height: 350px;
+    width: 700px;
+    top: 200px;
+    left: 35px;
 }
