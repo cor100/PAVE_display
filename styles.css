@@ -4,10 +4,17 @@ html, body, div{
 body {
     background-color: black;
     color: white;
+    font-family: 'Inter';
+}
+
+@font-face{
+    font-family: 'Inter';
+    src:  url('Inter-VariableFont.ttf') format('tff'),
 }
 table{
     border: none;
     height: 50px;
+    margin-bottom: 20px;
 }
 th, td{
     padding: 14px;
@@ -55,14 +62,12 @@ section{
 }
 
 .left-half {
-    background-color: #ff9e2c;
     position: absolute;
     left: 0px;
     width: 55%;
 }
 
 .right-half {
-    background-color: #b6701e;
     position: absolute;
     right: 0px;
     width: 45%;
@@ -84,6 +89,50 @@ section{
     border-radius: 50%;
 }
 
+.bottom{
+    position: fixed;
+    bottom: 0px;
+}
+
+
+.control{
+    color: #F58025;
+    font-weight: lighter;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+th.thin{
+    font-weight: lighter;
+}
+
+.speedDir{
+    font-size: 40px;
+    font-weight: normal;
+    margin: 0px;
+}
+
+th.speedDir{
+    padding-left: 75px;
+    padding-right: 75px;
+    
+}
+
+.pave{
+    height: 77px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 20px;
+}
+
+.sub{
+    padding:0px;
+    font-size: 20px;
+    margin:0px;
+}
+
 #boat {
     position: absolute;
     background-color: blue;
@@ -102,6 +151,5 @@ section{
     position: absolute;
     height: 350px;
     width: 700px;
-    top: 200px;
     left: 35px;
 }
