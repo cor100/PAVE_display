@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Test Display</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="setBuoys.js"></script>
 </head>
 <script>
     function connectPhidgets(){
@@ -47,11 +48,20 @@
             <div class = "left-half">
                 <table class = "center">
                     <tr>
-                        <th>Get Set</th>
-                        <th>Begin Race</th>
-                        <th>End Race</th>
-                        <th>Set Buoys</th>
-                        <th>Donuts</th>
+                        <th><button>Get Set</button></th>
+                        <th><button>Begin Race</button></th>
+                        <th><button>End Race</button></th>
+                        <th><button onclick = "openForm()">Set Buoys</button>
+                            <div class = "formPopUp" id="form">
+                                <form action="/setBuoy.php"> 
+                                <input type="number" placeholder="x" name="x" required>
+                                <input type="number" placeholder="y" name="y" requoired>
+                                <button type="submit" class="btn"> Set </button>
+                                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                                </form>
+                            </div>
+                        </th>
+                        <th><button>Donuts</button></th>
                     </tr>
                 </table>
                 <img src="Screen Shot 2022-04-26 at 1.38.26 PM.png" id="map">
