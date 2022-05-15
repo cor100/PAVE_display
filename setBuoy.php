@@ -1,11 +1,9 @@
-<?php
-              
-if(isset($_POST['textdata']))
+<?php           
+if(isset($_POST['x']) && isset($_POST['y']))
 {
-$data=$_POST['textdata'];
-$fp = fopen('buoy.txt', 'a');
-ftruncate();
-fwrite($fp, $data);
+$string = $_POST['x'].','.$_POST['y'];
+$fp = fopen('/buoy.txt', 'a');
+fwrite($fp, $string);
 fclose($fp);
 }
 ?>
