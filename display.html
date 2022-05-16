@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" http-equiv="refresh" content="1">
     <title>Test Display</title>
     <link rel="stylesheet" href="styles.css">
     <script src="setBuoys.js"></script>
@@ -12,27 +12,28 @@
         .then(response => response.text())
         .then(text => {
             var data = text.split("\n");
-            var num = data[0].split(", ");
+            console.log(data)
+            var num = data[data.length - 1].split(", ");
             
             document.getElementById("rudder").innerHTML = "Rudder Angle: " + num[0];
             var rudder = document.getElementsByClassName("rudderColor");
-            rudder[0].style.width=(num[0]+"%");
+            rudder.style.width=(num[0]+"%");
 
-            document.getElementById("throttle").innerHTML = "Throttle: " + num[0];
+            document.getElementById("throttle").innerHTML = "Throttle: " + num[1];
             var throttle = document.getElementsByClassName("throttleColor");
-            throttle[0].style.width=(num[0]+"%");
+            throttle.style.width=(num[1]+"%");
 
             const actualLeft = -77.190631;
             const actualTop = 38.690681;
             const actualWidth = 0.064825;
             const actualHeight = 0.024768;
 
-            var buoy1Top = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
-            var buoy1Left = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
-            var buoy2Top = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
-            var buoy2Left = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
-            var boatTop = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
-            var boatLeft = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
+            var buoy1Top = (Math.abs(parseInt(num[2]) - actualTop)) / actualHeight * 350 + top;
+            var buoy1Left = (Math.abs(parseInt(num[3]) - actualLeft)) / actualWidth * 700 + left;
+            var buoy2Top = (Math.abs(parseInt(num[4]) - actualTop)) / actualHeight * 350 + top;
+            var buoy2Left = (Math.abs(parseInt(num[5]) - actualLeft)) / actualWidth * 700 + left;
+            var boatTop = (Math.abs(parseInt(num[6]) - actualTop)) / actualHeight * 350 + top;
+            var boatLeft = (Math.abs(parseInt(num[7]) - actualLeft)) / actualWidth * 700 + left;
 
             document.getElementById("boat").style.top=(boatTop+"px");
             document.getElementById("boat").style.left=(boatLeft+"px");
@@ -52,14 +53,6 @@
                         <th><button>Begin Race</button></th>
                         <th><button>End Race</button></th>
                         <th><button onclick = "openForm()">Set Buoys</button>
-                            <div class = "formPopUp" id="form">
-                                <form action = "/setBuoy.php" method = "POST"> 
-                                <input type="number" placeholder="x" name="x" required>
-                                <input type="number" placeholder="y" name="y" requoired>
-                                <button type="submit" class="btn"> Set </button>
-                                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                                </form>
-                            </div>
                         </th>
                         <th><button>Donuts</button></th>
                     </tr>
