@@ -43,6 +43,19 @@
             document.getElementById("buoy1").style.left=(buoy1Left+"px");
             document.getElementById("buoy2").style.top=(buoy2Top+"px");
             document.getElementById("buoy2").style.left=(buoy2Left+"px");
+            document.getElementById("speed").innerHTML = num[8];
+
+            var dir = "";
+            if(num[9] == 1){
+                dir = "North";
+            }else if(num[9] == 2){
+                dir = "East";
+            }else if(num[9] == 3){
+                dir = "South";
+            }else if(num[9] == 4){
+                dir = "West";
+            }
+            document.getElementById("direction").innerHTML = dir;
         })
     }
 </script>
@@ -98,9 +111,11 @@
                     </table>
                     <table class = "bottom speedDir">
                         <tr>
-                            <th class = "thin speedDir">GPS
+                            <th class = "thin ">
+                                <p class = "thin speedDir" id="speed">speed</p>
                                 <p class="sub">MPH</p></th>
-                            <th class = "thin speedDir">RC
+                            <th class = "thin ">
+                                <p class = "thin speedDir" id="direction">N</p>
                                 <p class="sub">HEADING</p></th>
                         </tr>
                     </table>
