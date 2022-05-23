@@ -29,12 +29,12 @@
 
             const top = 80;
             const left = 35;
-            var buoy1Top = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
-            var buoy1Left = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
-            var buoy2Top = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
-            var buoy2Left = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
-            var boatTop = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
-            var boatLeft = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
+            var buoy1Top = (Math.abs(parseInt(num[5]) - actualTop)) / actualHeight * 350 + top;
+            var buoy1Left = (Math.abs(parseInt(num[4]) - actualLeft)) / actualWidth * 700 + left;
+            var buoy2Top = (Math.abs(parseInt(num[7]) - actualTop)) / actualHeight * 350 + top;
+            var buoy2Left = (Math.abs(parseInt(num[6]) - actualLeft)) / actualWidth * 700 + left;
+            var boatTop = (Math.abs(parseInt(num[3]) - actualTop)) / actualHeight * 350 + top;
+            var boatLeft = (Math.abs(parseInt(num[2]) - actualLeft)) / actualWidth * 700 + left;
 
             document.getElementById("boat").style.top=(boatTop+"px");
             document.getElementById("boat").style.left=(boatLeft+"px");
