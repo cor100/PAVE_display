@@ -4,36 +4,40 @@
     <meta charset="utf-8">
     <title>Test Display</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="setBuoys.js"></script>
 </head>
 <script>
     function connectPhidgets(){
         fetch('test_csv.txt') 
         .then(response => response.text())
         .then(text => {
-            var data = text.split("\n");
-            var num = data[0].split(", ");
+            var data = text.split("\r\n");
+            var num = data[data.length - 1].split(", ");
             
-            document.getElementById("rudder").innerHTML = "rudder angle: " + num[0];
+            document.getElementById("rudder").innerHTML = "Rudder Angle: " + num[1];
             var rudder = document.getElementsByClassName("rudderColor");
-            rudder[0].style.width=(num[0]+"%");
+            rudder[0].style.width=(num[1]+"%");
 
-            document.getElementById("throttle").innerHTML = "throttle: " + num[1];
+            document.getElementById("throttle").innerHTML = "Throttle: " + num[0];
             var throttle = document.getElementsByClassName("throttleColor");
-            throttle[0].style.width=(num[1]+"%");
+            throttle[0].style.width=(num[0]+"%");
 
             const actualLeft = -77.190631;
             const actualTop = 38.690681;
             const actualWidth = 0.064825;
             const actualHeight = 0.024768;
 
-            var buoy1Top = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
-            var buoy1Left = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
-            var buoy2Top = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
-            var buoy2Left = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
-            var boatTop = (Math.abs(parseInt(num[0]) - actualTop)) / actualHeight * 350 + top;
-            var boatLeft = (Math.abs(parseInt(num[0]) - actualLeft)) / actualWidth * 700 + left;
+            const top = 80;
+            const left = 35;
 
-            document.getElementById("boat").style.top=(200+"px");
+            var buoy1Top = (Math.abs(parseFloat(num[3]) - actualTop)) / actualHeight * 350 + top;
+            var buoy1Left = (Math.abs(parseFloat(num[2]) - actualLeft)) / actualWidth * 700 + left;
+            var buoy2Top = (Math.abs(parseFloat(num[5]) - actualTop)) / actualHeight * 350 + top;
+            var buoy2Left = (Math.abs(parseFloat(num[4]) - actualLeft)) / actualWidth * 700 + left;
+            var boatTop = (Math.abs(parseFloat(num[7]) - actualTop)) / actualHeight * 350 + top;
+            var boatLeft = (Math.abs(parseFloat(num[6]) - actualLeft)) / actualWidth * 700 + left;
+
+            document.getElementById("boat").style.top=(boatTop+"px");
             document.getElementById("boat").style.left=(boatLeft+"px");
             document.getElementById("buoy1").style.top=(buoy1Top+"px");
             document.getElementById("buoy1").style.left=(buoy1Left+"px");
@@ -47,19 +51,19 @@
             <div class = "left-half">
                 <table class = "center">
                     <tr>
-                        <th>Get Set</th>
-                        <th>Begin Race</th>
-                        <th>End Race</th>
-                        <th>Set Buoys</th>
-                        <th>Donuts</th>
+                        <th><button>Get Set</button></th>
+                        <th><button>Begin Race</button></th>
+                        <th><button>End Race</button></th>
+                        <th><button onclick = "openForm()">Set Buoys</button>
+                        </th>
+                        <th><button>Donuts</button></th>
                     </tr>
                 </table>
-                <h1>TEST DISPLAY</h1>
-                <h2 id="dataLabel">?</h2>
                 <img src="Screen Shot 2022-04-26 at 1.38.26 PM.png" id="map">
                 <div class="label" id="boat"></div>
                 <div class="label buoy" id="buoy1"></div>
                 <div class="label buoy" id="buoy2"></div>
+                <img src="PAVE logo.png" class = "pave center bottom">
             </div>
             <div class = "right-half">
                 <table class = "center">
@@ -69,7 +73,7 @@
                         <th><img src = "keller.png" class = "sponsor"></th>
                     </tr>
                 </table>
-                <section>
+                <section style="padding: 0px;">
                     <h1 id="throttle">
                         throttle
                     </h1>
@@ -83,21 +87,23 @@
                         <div class="rudderColor"></div>
                       </div>                    
                     <h1>
-                        control
+                        Control
                     </h1>
-                    <table>
-                        <tr>
-                            <th>GPS</th>
-                            <th>RC</th>
-                            <th>Autonomous</th>
+                    <table class="control">
+                        <tr class="thin">
+                            <th class = "bold">GPS</th>
+                            <th class = "thin">RC</th>
+                            <th class = "thin">Autonomous</th>
                         </tr>
                     </table>
-                    <table>
+                    <table class = "bottom speedDir">
                         <tr>
-                            <th>GPS</th>
-                            <th>RC</th>
+                            <th class = "thin speedDir">GPS
+                                <p class="sub">MPH</p></th>
+                            <th class = "thin speedDir">RC
+                                <p class="sub">HEADING</p></th>
                         </tr>
-                    </table>>
+                    </table>
                 </section>
             </div>
         </section>
